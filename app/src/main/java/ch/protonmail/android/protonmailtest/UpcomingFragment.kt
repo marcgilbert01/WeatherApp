@@ -1,5 +1,6 @@
 package ch.protonmail.android.protonmailtest
 
+import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,17 +18,21 @@ import java.net.URL
  **/
 class UpcomingFragment : Fragment() {
 
+    private var adapter: ForecastAdapter? = null
+
     // TODO: Please fix any errors and implement the missing parts (including any UI changes)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.fragment_hottest, container, false)
 
         val layoutManager = LinearLayoutManager(context)
-        val adapter = ForecastAdapter()
+        adapter = ForecastAdapter()
+        adapter?.updateData(arrayOf("one", "two", "three", "four"))
         val recycler = rootView.findViewById<RecyclerView>(R.id.recycler_view)
         recycler.adapter = adapter
         recycler.layoutManager = layoutManager
         fetchData()
 
+        rootView.setBackgroundColor(Color.RED)
         return rootView
     }
 
@@ -48,7 +53,7 @@ class UpcomingFragment : Fragment() {
         return null
     }
 
-    fun dataPresentInLocalStorage(): Boolean = true
+    fun dataPresentInLocalStorage(): Boolean = false
 
     class FetchDataFromServerTask : AsyncTask<String, String, String>() {
         override fun doInBackground(vararg p0: String?): String {
@@ -63,6 +68,11 @@ class UpcomingFragment : Fragment() {
                 response = httpURLConnection.responseMessage
             }
             return response
+        }
+
+        override fun onPostExecute(result: String?) {
+            super.onPostExecute(result)
+
         }
     }
 }

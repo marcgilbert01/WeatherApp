@@ -1,5 +1,6 @@
 package ch.protonmail.android.protonmailtest
 
+import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,10 +24,13 @@ class HottestFragment : Fragment() {
 
         val layoutManager = LinearLayoutManager(context)
         val adapter = ForecastAdapter()
+        adapter.updateData(arrayOf("wef","gg","asdfasdg","ggg","ssssss"))
         val recycler = rootView.findViewById<RecyclerView>(R.id.recycler_view)
         recycler.adapter = adapter
         recycler.layoutManager = layoutManager
         fetchData()
+
+        rootView.setBackgroundColor(Color.GREEN)
         return rootView
     }
 
