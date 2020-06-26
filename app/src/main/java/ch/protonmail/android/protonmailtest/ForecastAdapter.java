@@ -1,18 +1,23 @@
 package ch.protonmail.android.protonmailtest;
 
+import WeatheList.WeatherListItemUiModel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ProtonMail on 2/25/19.
  */
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.DayViewHolder> {
 
-    private String[] data;
+    private List<WeatherListItemUiModel> data = new ArrayList<>();
 
     @NonNull
     @Override
@@ -23,25 +28,27 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.DayVie
 
     @Override
     public void onBindViewHolder(@NonNull DayViewHolder holder, int position) {
-        holder.titleView.setText(data[position]);
+        holder.titleView.setText(data.get(position).getTitle());
     }
 
     @Override
     public int getItemCount() {
-        return data.length;
+        return data.size();
     }
 
-    public void updateData(String[] data) {
-        this.data = data;
+    public void updateData(List<WeatherListItemUiModel> weatherListItemUiModelList) {
+        this.data = weatherListItemUiModelList;
         notifyDataSetChanged();
     }
 
     public static class DayViewHolder extends RecyclerView.ViewHolder {
 
         private TextView titleView;
+        private ImageView imageView;
         public DayViewHolder(@NonNull View itemView) {
             super(itemView);
             titleView = itemView.findViewById(R.id.title);
+            imageView = itemView.findViewById(R.id.image);
         }
     }
 }

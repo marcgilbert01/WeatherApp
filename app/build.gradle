@@ -31,4 +31,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.2-alpha01'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.2-alpha01'
+
+    implementation project(path: ':presentation')
+    compile group: 'io.reactivex.rxjava2', name: 'rxandroid', version: '2.0.1'
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.1"
 }
