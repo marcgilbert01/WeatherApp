@@ -38,6 +38,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.DayVie
                 }
             }
         });
+        holder.maxTemperatureView.setText(data.get(position).getMaxTemperature());
     }
 
     @Override
@@ -54,10 +55,12 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.DayVie
 
         private TextView titleView;
         private CustomImageView imageView;
+        private TextView maxTemperatureView;
         public DayViewHolder(@NonNull View itemView) {
             super(itemView);
             titleView = itemView.findViewById(R.id.title);
             imageView = itemView.findViewById(R.id.image);
+            maxTemperatureView = itemView.findViewById(R.id.max_temperature_text);
         }
     }
 

@@ -7,7 +7,8 @@ class DayWeatherToWeatherListItemUiModelConverter : BaseMapperToPresentation<Day
     override fun mapToPresentation(toBeTransformed: DayWeather): WeatherListItemUiModel {
         return WeatherListItemUiModel(
             title = toBeTransformed.weatherCondition,
-            imageUrl = toBeTransformed.weatherConditionImageUrl
+            imageUrl = toBeTransformed.weatherConditionImageUrl,
+            maxTemperature = toBeTransformed.maxTemperature.toString()
         )
     }
 }
