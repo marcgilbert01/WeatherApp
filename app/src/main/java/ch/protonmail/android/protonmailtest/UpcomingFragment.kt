@@ -25,13 +25,11 @@ class UpcomingFragment : Fragment(), WeatherListContract.View {
         presenter = WeatherApp.presenterFactory.createWeatherListPresenterForUpcomingWeather(this)
     }
 
-    // TODO: Please fix any errors and implement the missing parts (including any UI changes)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.fragment_hottest, container, false)
 
         val layoutManager = LinearLayoutManager(context)
         adapter = ForecastAdapter()
-        //adapter?.updateData(arrayOf("one", "two", "three", "four"))
         val recycler = rootView.findViewById<RecyclerView>(R.id.recycler_view)
         recycler.adapter = adapter
         recycler.layoutManager = layoutManager
@@ -53,45 +51,4 @@ class UpcomingFragment : Fragment(), WeatherListContract.View {
     override fun displayWeatherList(weatherListItemUiModel: List<WeatherListItemUiModel>) {
         adapter?.updateData(weatherListItemUiModel)
     }
-
-    //
-//    fun fetchData() {
-//        if (dataPresentInLocalStorage()) {
-//            fetchDataFromLocalStorage()
-//        } else {
-//            fetchDataFromServer()
-//        }
-//    }
-//
-//    fun fetchDataFromServer() {
-//        FetchDataFromServerTask().execute()
-//    }
-//
-//    fun fetchDataFromLocalStorage(): Array<String>? {
-//        // TODO implement
-//        return null
-//    }
-//
-//    fun dataPresentInLocalStorage(): Boolean = false
-//
-//    class FetchDataFromServerTask : AsyncTask<String, String, String>() {
-//        override fun doInBackground(vararg p0: String?): String {
-//            val url = URL("https://5c5c8ba58d018a0014aa1b24.mockapi.io/api/forecast")
-//            val httpURLConnection = url.openConnection() as HttpURLConnection
-//            httpURLConnection.connect()
-//
-//            val responseCode: Int = httpURLConnection.responseCode
-//
-//            var response: String = ""
-//            if (responseCode == 200) {
-//                response = httpURLConnection.responseMessage
-//            }
-//            return response
-//        }
-//
-//        override fun onPostExecute(result: String?) {
-//            super.onPostExecute(result)
-//
-//        }
-//    }
 }

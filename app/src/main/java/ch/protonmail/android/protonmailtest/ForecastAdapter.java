@@ -29,6 +29,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.DayVie
     @Override
     public void onBindViewHolder(@NonNull DayViewHolder holder, int position) {
         holder.titleView.setText(data.get(position).getTitle());
+        holder.imageView.setUrl(data.get(position).getImageUrl());
     }
 
     @Override
@@ -44,7 +45,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.DayVie
     public static class DayViewHolder extends RecyclerView.ViewHolder {
 
         private TextView titleView;
-        private ImageView imageView;
+        private CustomImageView imageView;
         public DayViewHolder(@NonNull View itemView) {
             super(itemView);
             titleView = itemView.findViewById(R.id.title);
