@@ -2,7 +2,9 @@
     <string name="app_name">ProtonMailTest</string>
     <string name="label_forecast">Forecast</string>
     <string name="label_weather_condition">Weather condition</string>
-    <string name="label_chance_of_rain">Chances of rain</string>l
+    <string name="label_chance_of_rain">Chances of rain</string>
     <string name="label_temperatures">Temperatures</string>
     <string name="label_max_temperature">Max temperature</string>
+    <string name="label_upcoming">Upcoming</string>
+    <string name="label_hottest">Hottest</string>
 </resources>
