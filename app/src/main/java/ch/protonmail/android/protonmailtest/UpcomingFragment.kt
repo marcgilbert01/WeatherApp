@@ -37,7 +37,6 @@ class UpcomingFragment : Fragment(), WeatherListContract.View {
         recycler.adapter = adapter
         recycler.layoutManager = layoutManager
 
-        rootView.setBackgroundColor(Color.RED)
         return rootView
     }
 
