@@ -30,6 +30,9 @@ class HottestFragment : Fragment(), WeatherListContract.View {
 
         val layoutManager = LinearLayoutManager(context)
         adapter = ForecastAdapter()
+        adapter?.setOnItemClickedListener { positionInTheList ->
+            presenter?.onWeatherDayClicked(positionInTheList)
+        }
         val recycler = rootView.findViewById<RecyclerView>(R.id.recycler_view)
         recycler.adapter = adapter
         recycler.layoutManager = layoutManager

@@ -15,6 +15,7 @@ class JsonObjectToDayWeatherConverter : BaseMapperToDomain<JsonElement, DayWeath
         val jsonStr = toBeTransformed.toString()
         val dayWeatherData = json.parse(DayWeatherData.serializer(), jsonStr )
         return DayWeather(
+            dayId = dayWeatherData.day?.toInt() ?: 0,
             weatherCondition = dayWeatherData.description,
             weatherConditionImageUrl = dayWeatherData.image
         )

@@ -12,6 +12,10 @@ import android.widget.TextView
  */
 class DetailsActivity : AppCompatActivity() {
 
+    companion object {
+        const val PARAM_DAY_ID = "PARAM_DAY_ID"
+    }
+
     // TODO: Please fix any errors and implement the missing parts (including any UI changes)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

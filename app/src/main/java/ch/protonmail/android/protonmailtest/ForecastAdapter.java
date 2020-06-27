@@ -4,7 +4,6 @@ import WeatheList.WeatherListItemUiModel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +17,7 @@ import java.util.List;
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.DayViewHolder> {
 
     private List<WeatherListItemUiModel> data = new ArrayList<>();
+    private OnItemClickedListener onItemClickedListener = null;
 
     @NonNull
     @Override
@@ -27,9 +27,17 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.DayVie
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DayViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DayViewHolder holder, final int position) {
         holder.titleView.setText(data.get(position).getTitle());
         holder.imageView.setUrl(data.get(position).getImageUrl());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (onItemClickedListener != null) {
+                    onItemClickedListener.onItemClicked(position);
+                }
+            }
+        });
     }
 
     @Override
@@ -51,5 +59,13 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.DayVie
             titleView = itemView.findViewById(R.id.title);
             imageView = itemView.findViewById(R.id.image);
         }
+    }
+
+    public void setOnItemClickedListener(OnItemClickedListener onItemClickedListener) {
+        this.onItemClickedListener = onItemClickedListener;
+    }
+
+    interface OnItemClickedListener {
+        void onItemClicked(int positionInTheList);
     }
 }

@@ -9,5 +9,6 @@ interface WeatherListContract {
     interface Presenter {
         fun onViewStart()
         fun onViewStop()
+        fun onWeatherDayClicked(positionInTheList: Int)
     }
 }

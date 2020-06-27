@@ -1,5 +1,6 @@
 package factories
 
+import Navigators.appNavigator
 import WeatheList.DayWeatherToWeatherListItemUiModelConverter
 import WeatheList.WeatherListContract
 import WeatheList.WeatherListPresenter
@@ -19,7 +20,8 @@ class PresenterFactory {
                     JsonObjectToDayWeatherConverter()
                 )
             ),
-            dayWeatherToWeatherListItemUiModelConverter = DayWeatherToWeatherListItemUiModelConverter()
+            dayWeatherToWeatherListItemUiModelConverter = DayWeatherToWeatherListItemUiModelConverter(),
+            appNavigator = appNavigator
         )
     }
 }
