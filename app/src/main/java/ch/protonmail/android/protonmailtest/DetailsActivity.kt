@@ -21,9 +21,11 @@ class DetailsActivity : AppCompatActivity(), DetailsPageContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+        val dayId = intent.getIntExtra(PARAM_DAY_ID, 0)
+        title = dayId.toString()
         presenter = WeatherApp.presenterFactory.createWeatherDetailsPageForOneDay(
-                    this,
-                    intent.getIntExtra(PARAM_DAY_ID, 0))
+            this,
+            dayId)
         download_button.setOnClickListener {
             presenter?.onDownloadButtonPress()
         }
