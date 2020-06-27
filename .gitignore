@@ -9,3 +9,6 @@
 /build
 /captures
 .externalNativeBuild
+/domain/build/
+/presentation/build/
+/data/build/

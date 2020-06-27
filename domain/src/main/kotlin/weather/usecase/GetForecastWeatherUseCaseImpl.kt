@@ -2,8 +2,11 @@ package weather.usecase
 
 import io.reactivex.Single
 import weather.entitiy.DayWeather
+import weather.repository.WeatherForecastRepository
 
-class GetForecastWeatherUseCaseImpl : GetForecastWeatherUseCase {
+class GetForecastWeatherUseCaseImpl(
+    private val weatherForecastRepository: WeatherForecastRepository
+) : GetForecastWeatherUseCase {
 
     override fun buildUseCase(): Single<List<DayWeather>> {
         val tmpMocks = listOf<DayWeather>(
@@ -16,6 +19,6 @@ class GetForecastWeatherUseCaseImpl : GetForecastWeatherUseCase {
             DayWeather("horrible", "")
         )
 
-        return Single.just(tmpMocks)
+        return weatherForecastRepository.getWeatherForecast()
     }
 }
