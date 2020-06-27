@@ -17,7 +17,10 @@ class JsonObjectToDayWeatherConverter : BaseMapperToDomain<JsonElement, DayWeath
         return DayWeather(
             dayId = dayWeatherData.day?.toInt() ?: 0,
             weatherCondition = dayWeatherData.description,
-            weatherConditionImageUrl = dayWeatherData.image
+            weatherConditionImageUrl = dayWeatherData.image,
+            minTemperature = dayWeatherData.low,
+            maxTemperature = dayWeatherData.high,
+            chancesOfRainPercent = dayWeatherData.chance_rain?.times(100)
         )
     }
 

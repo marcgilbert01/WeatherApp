@@ -52,4 +52,12 @@ class DetailsActivity : AppCompatActivity(), DetailsPageContract.View {
         image.setUrl(imageUrl)
         download_button.visibility = View.GONE
     }
+
+    override fun showTemperatures(temperatures: String) {
+        temperatures_text?.text = temperatures
+    }
+
+    override fun showChancesOfRain(chancesOfRain: String) {
+        chance_of_rain_text?.text = chancesOfRain
+    }
 }

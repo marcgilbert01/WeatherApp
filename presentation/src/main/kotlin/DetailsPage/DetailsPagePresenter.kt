@@ -25,8 +25,16 @@ class DetailsPagePresenter(
                     .observeOn(uiScheduler)
                     .subscribe({
                         detailsPageUiModel = dayWeatherToWeatherListItemUiModelConverter.mapToPresentation(it)
-                        detailsPageUiModel?.title?.let {
-                            view.showTitle(it)
+                        detailsPageUiModel?.apply {
+                           title?.apply {
+                               view.showTitle(this)
+                           }
+                           temperatures?.apply {
+                               view.showTemperatures(this)
+                           }
+                           chancesOfRain?.apply {
+                               view.showChancesOfRain(this)
+                           }
                         }
                     },{
                         println(it.localizedMessage)

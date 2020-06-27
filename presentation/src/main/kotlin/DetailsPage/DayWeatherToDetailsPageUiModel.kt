@@ -8,7 +8,9 @@ class DayWeatherToDetailsPageUiModel : BaseMapperToPresentation<DayWeather, Deta
     override fun mapToPresentation(toBeTransformed: DayWeather): DetailsPageUiModel {
         return DetailsPageUiModel(
             title = toBeTransformed.weatherCondition,
-            imageUrl = toBeTransformed.weatherConditionImageUrl
+            imageUrl = toBeTransformed.weatherConditionImageUrl,
+            temperatures = "${toBeTransformed.minTemperature} to ${toBeTransformed.maxTemperature}",
+            chancesOfRain = "${toBeTransformed.chancesOfRainPercent.toString()} %"
         )
     }
 }
