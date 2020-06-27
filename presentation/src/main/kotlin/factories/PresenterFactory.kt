@@ -7,7 +7,7 @@ import Navigators.appNavigator
 import WeatheList.DayWeatherToWeatherListItemUiModelConverter
 import WeatheList.WeatherListContract
 import WeatheList.WeatherListPresenter
-import weather.JsonObjectToDayWeatherConverter
+import weather.JsonElementToDayWeatherConverter
 import weather.WeatherForecastRepositoryImpl
 import weather.usecase.GetForecastWeatherUseCaseImpl
 import weather.usecase.GetOneDayWeatherUseCaseImpl
@@ -21,7 +21,7 @@ class PresenterFactory {
             view = view,
             getForecastWeatherUseCase = GetForecastWeatherUseCaseImpl(
                 WeatherForecastRepositoryImpl(
-                    JsonObjectToDayWeatherConverter()
+                    JsonElementToDayWeatherConverter()
                 )
             ),
             shouldOrderByHottestDay = false,
@@ -37,7 +37,7 @@ class PresenterFactory {
             view = view,
             getForecastWeatherUseCase = GetForecastWeatherUseCaseImpl(
                 WeatherForecastRepositoryImpl(
-                    JsonObjectToDayWeatherConverter()
+                    JsonElementToDayWeatherConverter()
                 )
             ),
             shouldOrderByHottestDay = true,
@@ -55,7 +55,7 @@ class PresenterFactory {
             getOneDayWeatherUseCase = GetOneDayWeatherUseCaseImpl(
                 GetForecastWeatherUseCaseImpl(
                     WeatherForecastRepositoryImpl(
-                        JsonObjectToDayWeatherConverter()
+                        JsonElementToDayWeatherConverter()
                     )
                 )
             ),

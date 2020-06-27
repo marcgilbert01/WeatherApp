@@ -8,9 +8,17 @@ class GetForecastWeatherUseCaseImpl(
     private val weatherForecastRepository: WeatherForecastRepository
 ) : GetForecastWeatherUseCase {
 
+    companion object {
+        var cachedWeatherData: List<DayWeather>? = null
+    }
+
     override fun buildUseCase(params: GetForecastWeatherUseCase.Params): Single<List<DayWeather>> {
         return weatherForecastRepository.getWeatherForecast()
+            .onErrorReturn {
+                cachedWeatherData ?: ArrayList()
+            }
             .map {
+                cachedWeatherData = it
                 if (params.shouldSortByHottestDay) {
                     filterAndorderByHottestDays(it)
                 } else {

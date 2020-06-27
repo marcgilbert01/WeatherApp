@@ -8,6 +8,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
+import java.lang.Exception
 
 class WeatherForecastRepositoryImpl(
     private val jsonObjectToDayWeatherConverter: BaseMapperToDomain<JsonElement, DayWeather>
@@ -20,6 +21,9 @@ class WeatherForecastRepositoryImpl(
         return Single.fromCallable {
             var dayWeatherList: List<DayWeather>
             val connection = URL("https://5c5c8ba58d018a0014aa1b24.mockapi.io/api/forecast").openConnection() as HttpURLConnection
+            if (connection.responseCode != 200) {
+                throw CantAccessApiException()
+            }
             connection.inputStream.bufferedReader().readText().let {
                 val jsonElement = json.parseJson(it)
                 jsonElement.jsonArray.content.toList().let {
@@ -29,4 +33,6 @@ class WeatherForecastRepositoryImpl(
             dayWeatherList
         }
     }
+
+    class CantAccessApiException: Exception()
 }

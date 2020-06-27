@@ -7,7 +7,7 @@ import kotlinx.serialization.json.JsonConfiguration
 import kotlinx.serialization.json.JsonElement
 import weather.entitiy.DayWeather
 
-class JsonObjectToDayWeatherConverter : BaseMapperToDomain<JsonElement, DayWeather>() {
+class JsonElementToDayWeatherConverter : BaseMapperToDomain<JsonElement, DayWeather>() {
 
     private val json = Json(JsonConfiguration.Stable)
 
