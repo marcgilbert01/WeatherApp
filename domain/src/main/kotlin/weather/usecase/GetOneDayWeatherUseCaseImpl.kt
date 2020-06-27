@@ -8,7 +8,7 @@ class GetOneDayWeatherUseCaseImpl(
 ) : GetOneDayWeatherUseCase {
 
     override fun buildUseCase(params: GetOneDayWeatherUseCase.Params): Single<DayWeather> {
-        return getForecastWeatherUseCase.buildUseCase()
+        return getForecastWeatherUseCase.buildUseCase(GetForecastWeatherUseCase.Params(false))
             .map {
                 findDayFrom(params.dayId, it) ?: DayWeather(0)
             }

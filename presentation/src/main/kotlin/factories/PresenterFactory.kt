@@ -24,6 +24,23 @@ class PresenterFactory {
                     JsonObjectToDayWeatherConverter()
                 )
             ),
+            shouldOrderByHottestDay = false,
+            dayWeatherToWeatherListItemUiModelConverter = DayWeatherToWeatherListItemUiModelConverter(),
+            appNavigator = appNavigator
+        )
+    }
+
+    fun createWeatherListPresenterForHottestDay(
+        view: WeatherListContract.View
+    ): WeatherListContract.Presenter {
+        return WeatherListPresenter(
+            view = view,
+            getForecastWeatherUseCase = GetForecastWeatherUseCaseImpl(
+                WeatherForecastRepositoryImpl(
+                    JsonObjectToDayWeatherConverter()
+                )
+            ),
+            shouldOrderByHottestDay = true,
             dayWeatherToWeatherListItemUiModelConverter = DayWeatherToWeatherListItemUiModelConverter(),
             appNavigator = appNavigator
         )

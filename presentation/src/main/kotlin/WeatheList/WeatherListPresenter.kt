@@ -11,6 +11,7 @@ import weather.usecase.GetForecastWeatherUseCase
 class WeatherListPresenter(
     private val view: WeatherListContract.View,
     private val getForecastWeatherUseCase: GetForecastWeatherUseCase,
+    private val shouldOrderByHottestDay: Boolean,
     private val dayWeatherToWeatherListItemUiModelConverter: BaseMapperToPresentation<DayWeather, WeatherListItemUiModel>,
     private val appNavigator: AppNavigator
 ) : WeatherListContract.Presenter {
@@ -22,7 +23,7 @@ class WeatherListPresenter(
     override fun onViewStart() {
         if (!isListDisplayed) {
             compositeDisposable.add(
-                getForecastWeatherUseCase.buildUseCase()
+                getForecastWeatherUseCase.buildUseCase(GetForecastWeatherUseCase.Params(shouldOrderByHottestDay))
                     .subscribeOn(Schedulers.io())
                     .observeOn(uiScheduler)
                     .subscribe({

@@ -22,7 +22,7 @@ class HottestFragment : Fragment(), WeatherListContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter = WeatherApp.presenterFactory.createWeatherListPresenterForUpcomingWeather(this)
+        presenter = WeatherApp.presenterFactory.createWeatherListPresenterForHottestDay(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
