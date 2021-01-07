@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest
+package example.marc.android.weatherApp
 
 import Navigators.AppNavigator
 import Navigators.appNavigator

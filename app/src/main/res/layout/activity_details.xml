@@ -28,7 +28,7 @@
                 app:layout_constraintRight_toRightOf="@id/image"
                 android:text="Download"/>
 
-        <ch.protonmail.android.protonmailtest.CustomImageView
+        <example.marc.android.weatherApp.CustomImageView
                 android:id="@+id/image"
                 android:layout_width="0dp"
                 android:layout_height="0dp"

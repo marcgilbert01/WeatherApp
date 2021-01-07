@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest
+package example.marc.android.weatherApp
 
 import DetailsPage.DetailsPageContract
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,6 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_details.*
 
 /**
- * Created by ProtonMail on 2/25/19.
  * Shows all the details for a particular day.
  */
 class DetailsActivity : AppCompatActivity(), DetailsPageContract.View {

@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest;
+package example.marc.android.weatherApp;
 
 import WeatheList.WeatherListItemUiModel;
 import android.view.LayoutInflater;
@@ -11,9 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by ProtonMail on 2/25/19.
- */
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.DayViewHolder> {
 
     private List<WeatherListItemUiModel> data = new ArrayList<>();

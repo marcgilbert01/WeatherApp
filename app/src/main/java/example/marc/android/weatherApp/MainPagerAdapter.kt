@@ -1,6 +1,5 @@
-package ch.protonmail.android.protonmailtest
+package example.marc.android.weatherApp
 
-import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

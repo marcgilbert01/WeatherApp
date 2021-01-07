@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProtonMailTest</string>
+    <string name="app_name">Weather App</string>
     <string name="label_forecast">Forecast</string>
     <string name="label_weather_condition">Weather condition</string>
     <string name="label_chance_of_rain">Chances of rain</string>

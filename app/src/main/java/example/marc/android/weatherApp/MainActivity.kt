@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest
+package example.marc.android.weatherApp
 
 import android.annotation.SuppressLint
 import android.os.Bundle

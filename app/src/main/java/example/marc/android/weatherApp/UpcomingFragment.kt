@@ -1,8 +1,7 @@
-package ch.protonmail.android.protonmailtest
+package example.marc.android.weatherApp
 
 import WeatheList.WeatherListContract
 import WeatheList.WeatherListItemUiModel
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,17 +11,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * Created by ProtonMail on 2/25/19.
- * Shows any days that have less than a 50% chance of rain, ordered hottest to coldest
- * */
-class HottestFragment : Fragment(), WeatherListContract.View {
+ * Shows the upcoming list of days returned by the API in order of day
+ **/
+class UpcomingFragment : Fragment(), WeatherListContract.View {
 
     private var adapter: ForecastAdapter? = null
     private var presenter: WeatherListContract.Presenter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter = WeatherApp.presenterFactory.createWeatherListPresenterForHottestDay(this)
+        presenter = WeatherApp.presenterFactory.createWeatherListPresenterForUpcomingWeather(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
